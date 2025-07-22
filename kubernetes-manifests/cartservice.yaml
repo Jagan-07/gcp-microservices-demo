@@ -34,6 +34,8 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
         runAsUser: 1000
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: server
         securityContext:
@@ -46,8 +48,6 @@ spec:
         image: "${IMAGE}"
         ports:
         - containerPort: 7070
-      imagePullSecrets:
-      - name: regcred
         env:
         - name: REDIS_ADDR
           value: "redis-cart:6379"

@@ -33,6 +33,8 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
         runAsUser: 1000
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: server
           securityContext:
@@ -45,8 +47,6 @@ spec:
           image: "${IMAGE}"
           ports:
           - containerPort: 5050
-      imagePullSecrets:
-      - name: regcred
           readinessProbe:
             grpc:
               port: 5050

@@ -34,6 +34,8 @@ spec:
         runAsGroup: 1000
         runAsNonRoot: true
         runAsUser: 1000
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: server
         securityContext:
@@ -47,8 +49,6 @@ spec:
         ports:
         - name: grpc
           containerPort: 7000
-      imagePullSecrets:
-      - name: regcred
         env:
         - name: PORT
           value: "7000"
