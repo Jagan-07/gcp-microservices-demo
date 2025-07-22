@@ -45,6 +45,8 @@ spec:
           image: "${IMAGE}"
           ports:
           - containerPort: 5050
+      imagePullSecrets:
+      - name: regcred
           readinessProbe:
             grpc:
               port: 5050

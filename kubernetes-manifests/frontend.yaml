@@ -47,6 +47,8 @@ spec:
           image: "${IMAGE}"
           ports:
           - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
           readinessProbe:
             initialDelaySeconds: 10
             httpGet:

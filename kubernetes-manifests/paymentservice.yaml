@@ -46,6 +46,8 @@ spec:
         image: "${IMAGE}"
         ports:
         - containerPort: 50051
+      imagePullSecrets:
+      - name: regcred
         env:
         - name: PORT
           value: "50051"

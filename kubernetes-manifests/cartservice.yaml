@@ -46,6 +46,8 @@ spec:
         image: "${IMAGE}"
         ports:
         - containerPort: 7070
+      imagePullSecrets:
+      - name: regcred
         env:
         - name: REDIS_ADDR
           value: "redis-cart:6379"
