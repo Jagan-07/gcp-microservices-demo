@@ -60,6 +60,8 @@ spec:
           type: {{ .Values.seccompProfile.type }}
         {{- end }}
       {{- end }}
+      imagePullSecrets:
+        {{- toYaml .Values.imagePullSecrets | nindent 8 }}
       containers:
       - name: server
         securityContext:
@@ -70,6 +72,7 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 9555
         env:

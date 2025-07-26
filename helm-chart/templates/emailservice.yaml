@@ -60,6 +60,8 @@ spec:
           type: {{ .Values.seccompProfile.type }}
         {{- end }}
       {{- end }}
+      imagePullSecrets:
+        {{- toYaml .Values.imagePullSecrets | nindent 8 }}
       containers:
       - name: server
         securityContext:

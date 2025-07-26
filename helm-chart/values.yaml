@@ -17,9 +17,12 @@
 # Declare variables to be passed into your templates.
 
 images:
-  repository: us-central1-docker.pkg.dev/google-samples/microservices-demo
+  repository: 392051336318.dkr.ecr.us-east-1.amazonaws.com
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+
+imagePullSecrets:
+  - name: regcred
 
 serviceAccounts:
   # Specifies whether service accounts should be created.
